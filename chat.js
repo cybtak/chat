@@ -55,45 +55,58 @@ document.getElementById('emojiButton').addEventListener('click', () => {
   sendEmoji('😄');
 });
 
+// Function to delete a message for the current user only
+function deleteMessageForCurrentUser(messageId) {
+  const confirmDelete = confirm("Are you sure you want to delete this message?");
+  if (confirmDelete) {
+    // Remove the message from the database
+    set(ref(database, 'messages/' + messageId), null)
+      .then(() => console.log('Message deleted successfully!'))
+      .catch((error) => console.error('Error deleting message:', error));
+  }
+}
+
 // Function to display messages
 function displayMessages(data) {
-    const messagesDiv = document.getElementById('messages');
-    messagesDiv.innerHTML = ''; // Clear existing messages
-    const messages = data.val();
-    for (const key in messages) {
-      if (Object.hasOwnProperty.call(messages, key)) {
-        const message = messages[key];
-        const messageContainer = document.createElement('div');
-        const messageTextElement = document.createElement('span');
-        const messageTimeElement = document.createElement('span');
-        const messageUserElement = document.createElement('span'); // New element for displaying username
+  const messagesDiv = document.getElementById('messages');
+  messagesDiv.innerHTML = ''; // Clear existing messages
+  const messages = data.val();
+  for (const key in messages) {
+    if (Object.hasOwnProperty.call(messages, key)) {
+      const message = messages[key];
+      const messageContainer = document.createElement('div');
+      const messageTextElement = document.createElement('span');
+      const messageTimeElement = document.createElement('span');
+      const messageUserElement = document.createElement('span');
+      const deleteForMeButton = document.createElement('button');
 
-        messageContainer.classList.add('message-container'); // Add a class for styling
-        messageTextElement.innerText = message.text;
-        
-        // Styling for message text
-        messageTextElement.style.fontSize = '1em';
-  
-        // Styling for message timestamp
-        messageTimeElement.innerText = new Date(message.timestamp).toLocaleString();
-        messageTimeElement.style.fontSize = '0.8em'; // Decrease font size
-        messageTimeElement.style.color = '#777'; // Change font color
+      messageContainer.classList.add('message-container');
+      messageTextElement.innerText = message.text;
+      messageTextElement.style.fontSize = '1em';
+      messageTimeElement.innerText = new Date(message.timestamp).toLocaleString();
+      messageTimeElement.style.fontSize = '0.8em';
+      messageTimeElement.style.color = '#777';
+      messageUserElement.innerText = message.username + ': ';
+      messageUserElement.style.fontWeight = 'bold';
 
-        // Display username
-        messageUserElement.innerText = message.username + ': ';
-        messageUserElement.style.fontWeight = 'bold';
-        
-        messageContainer.appendChild(messageUserElement); // Append username
-        messageContainer.appendChild(messageTextElement);
-        messageContainer.appendChild(document.createElement('br')); // Line break
-        messageContainer.appendChild(messageTimeElement);
-  
-        messagesDiv.appendChild(messageContainer);
-      }
+      deleteForMeButton.innerText = 'Delete';
+      deleteForMeButton.addEventListener('click', () => deleteMessageForCurrentUser(key));
+
+      messageContainer.appendChild(messageUserElement);
+      messageContainer.appendChild(messageTextElement);
+      messageContainer.appendChild(document.createElement('br'));
+      messageContainer.appendChild(messageTimeElement);
+      messageContainer.appendChild(deleteForMeButton);
+
+      messagesDiv.appendChild(messageContainer);
     }
-    messagesDiv.scrollTop = messagesDiv.scrollHeight; // Scroll to bottom after new messages are added
   }
+  messagesDiv.scrollTop = messagesDiv.scrollHeight;
+}
 
 // Listen for changes in the 'messages' node
 const messagesRef = ref(database, 'messages');
 onValue(messagesRef, displayMessages);
+
+
+
