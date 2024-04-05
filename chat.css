@@ -12,7 +12,7 @@ body {
   max-width: 600px;
   margin: 20px auto;
   padding: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid #48cf48;
   border-radius: 10px;
   background-image: url('https://media.istockphoto.com/id/1311966784/photo/chat-speech-bubble-on-smart-phone-screen.jpg?s=612x612&w=0&k=20&c=6qC75HU6r9pWmlFCJ7kjyHhbFUx27J1gYD02sS0aufU='); /* Replace 'your-background-image-url.jpg' with the URL of your background image */
   background-size: cover; /* Cover the entire container */
@@ -31,7 +31,7 @@ body {
   flex: 1;
   padding: 10px;
   font-size: 16px;
-  border: 1px solid #ccc;
+  border: 1px solid #ca2020;
   border-radius: 5px;
 }
 
@@ -40,8 +40,8 @@ body {
   padding: 10px 20px;
   margin-left: 10px;
   font-size: 16px;
-  background-color: #007bff;
-  color: #fff;
+  background-color: #27d46a;
+  color: #000000;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -50,14 +50,14 @@ body {
 
 /* Hover effect for send button */
 .input-container button:hover {
-  background-color: #0056b3;
+  background-color: #1d87f8;
 }
 
 /* Message container */
 #messages {
   margin-top: 20px;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #fff6fe;
   border-radius: 5px;
   overflow-y: auto;
   max-height: 300px;
@@ -71,7 +71,7 @@ body {
 
 /* Add border between each message */
 .message-container + .message-container {
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #0add07;
   padding-top: 10px; /* Add padding to separate messages */
 }
 
@@ -86,7 +86,7 @@ body {
   top: 5px; /* Adjust top position */
   right: 5px; /* Adjust right position */
   background-color: #dc3545;
-  color: #fff;
+  color: #000000;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -106,3 +106,25 @@ body {
     opacity: 1;
   }
 }
+
+
+#messages::-webkit-scrollbar {
+  width: 10px;
+}
+
+#messages::-webkit-scrollbar-track {
+  
+  border-radius: 5px;
+}
+
+#messages::-webkit-scrollbar-thumb {
+  background-color: #31f40a;
+  border-radius: 5px;
+}
+
+#messages::-webkit-scrollbar-thumb:hover {
+  background-color: #a3e11e;
+}
+
+
+
