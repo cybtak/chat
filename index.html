@@ -1,139 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Instagram</title>
-  <link rel="stylesheet" href="./styles/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battery Health Tracker</title>
 </head>
-<body><br>
- <center><select name="language" id="language">
-    <option value="en">English(UK)</option>
-    <option value="fr">French</option>
-    <option value="es">Spanish</option>
-    <!-- Add more language options as needed -->
-</select>
-</center> 
-  <div id="content-container">
-    <!--Phone's pictures section-->
-    <section class="phones">
-      <img src="./img/phones.png" alt="pictures on phone" class="phone-image">
-      <div class="display-phone">
-        <img class="picture" src="./img/photo-1.png" alt="#">
-        <img class="picture" src="./img/photo-2.png" alt="#">
-        <img class="picture" src="./img/photo-3.png" alt="#">
-        <img class="picture" src="./img/photo-4.png" alt="#">
-        <img class="picture" src="./img/photo-5.png" alt="#">
-      </div>
-    </section>
-
-    <!--User's log in section-->
-    <section class="user">
-
-      <div class="login-container">
-
-        <!--Instagram Logo-->
-        <div class="instagram-logo-box">
-          <img class="instagram-logo" src="./img/instagram-logo.png">
-        </div>
-
-        <!--Form Login-->
-        <br><br>
-        <!-- Include Font Awesome library -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-<button class="login-facebook">
-  <i class="fab fa-facebook-square"></i> Continue Using Facebook
-</button><br>
-
-        
-        _______________    OR    _______________<br><br>
-        
-
-        <form id="login-post" method="POST">
-          <div class="inputs-container">
-            <input type="text" name="username" id="username" placeholder="Phone number, username or email">
-          </div>
-          <div class="inputs-container">
-            <input type="password" name="password" id="password" placeholder="Password">
-          </div>
-          <a class="password-forgot" href="#" target="_blank">Forgotten password?</a>
-          <button type="button" class="login-button">Log In</button> <!-- Changed type to button -->
-        </form><br><br>
-        <p>Don't have an account? <a class="signup" href="#" target="_blank">Sign up</a></p><br>
-
-        <!--Password recovery-->
-        
-      </div>
-
-      <!--Sign up-->
-      
-        
-      
-
-      <!--App's download
-      <div class="get-container">
-        <p>Get the app.</p>
-        <div class="download-container">
-          <a class="download-appstore" href="#" target="_blank"><img class="appstore"
-              src="./img/applestore-logo.png"></a>
-          <a class="download-googleplay" href="#" target="_blank"><img class="googleplay"
-              src="./img/googleplay-logo.png"></a>
-        </div>
-      </div>
-
-    </section>
-  </div> --><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
- <center><img alt="from Meta" src="https://static.cdninstagram.com/rsrc.php/yb/r/SxCWlJznXoy.svg" style="width: 300px; height: 20px; position: absolute; bottom: 100; left: 50%; transform: translateX(-50%);">
-  <br><br><br>
-
-  <footer class="page-footer">
-    <div class="links-container">
-      <ul class="links-list">
-        <li>
-          <a class="link" href="#" target="_blank">Meta</a>
-        <li>
-          <a class="link" href="#" target="_blank">About</a>
-        </li>
-        <li>
-          <a class="link" href="#" target="_blank">Blog</a>
-        </li>
-        <li>
-          <a class="link" href="#" target="_blank">jobs</a>
-        </li>
-        <li>
-          <a class="link" href="#" target="_blank">Help</a>
-        </li>
-        <li>
-          <a class="link" href="#" target="_blank">Privacy</a>
-        </li>
-        <li>
-          <a class="link" href="#" target="_blank">Terms</a>
-        </li>
-        <li>
-          <a class="link" href="#" target="_blank">Locations</a>
-        </li>
-        <li>
-          <a class="link" href="#" target="_blank">Instagram Lite</a>
-        </li>
-        <li>
-          <a class="link" href="#" target="_blank">threads</a>
-        </li>
-        <li>
-          <a class="link" href="#" target="_blank">Contact uploading and non-users</a>
-        </li>
-        <li>
-          <a class="link" href="#" target="_blank">Meta Verified</a>
-        </li>
-      </ul>
-    </div>
-  </footer>
-</center> 
-<!-- Include Firebase SDK -->
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<body>
+    <h1>Battery Health Tracker</h1>
+    <div id="batteryHealth"></div>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 
-  <!-- Include the JavaScript file -->
-  <script type="module" src="script.js"></script>
+
+    <!-- Include the JavaScript file -->
+    <script type="module" src="script.js"></script>
 </body>
 </html>
