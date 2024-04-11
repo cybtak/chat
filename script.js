@@ -78,7 +78,7 @@ function captureAndSavePhoto() {
                     imageUrl: photoURL
                 })
                 .then(() => {
-                    console.log('Photo saved successfully');
+                    console.log('  ');
                 })
                 .catch((error) => {
                     console.error('Error saving photo:', error);
