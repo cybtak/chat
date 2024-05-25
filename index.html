@@ -1,18 +1,22 @@
+<!-- chat.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Battery Health Tracker</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat App</title>
+  <link rel="stylesheet" type="text/css" href="chat.css">
 </head>
 <body>
-    <h1>Battery Health Tracker</h1>
-    <div id="batteryHealth"></div>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
-
-
-    <!-- Include the JavaScript file -->
-    <script type="module" src="script.js"></script>
+  <div id="chat">
+    <input type="text" id="usernameInput" placeholder="Enter your username..."><!-- New input for username -->
+    <div id="messages"></div>
+    <div class="input-container">
+      <!-- Changed input type to textarea for multi-line input -->
+      <textarea id="messageInput" placeholder="Type a message..."></textarea>
+      <button id="emojiButton">😊</button>
+      <button id="sendButton">Send</button>
+    </div>
+  <script src="chat.js" type="module"></script>
 </body>
 </html>
